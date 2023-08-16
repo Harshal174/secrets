@@ -60,7 +60,7 @@ passport.deserializeUser(async (id,done)=>{
 passport.use(new GoogleStrategy({
     clientID:process.env.CLIENT_ID,
     clientSecret:process.env.CLIENT_SECRET,
-    callbackURL:"https://secrets-4vnk.onrender.com"
+    callbackURL:"https://secrets-4vnk.onrender.com/auth/google/secrets"
 },
 function(accessToken,refreshToken,profile,cb){
     User.findOrCreate({username:profile.emails[0].value,googleId:profile.id},function(err,foundUser){
